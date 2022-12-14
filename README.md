@@ -21,8 +21,10 @@ For development, these layouts depend on:
 * [TypeScript loader](https://www.npmjs.com/package/ts-loader) as an npm developement package.
 * [inspectpack](https://www.npmjs.com/package/inspectpack) as an npm developement package.
 * [Polaris Core](https://www.npmjs.com/package/polaris-core) as an npm developement package.
-* [Polaris Colors](https://github.com/heminsatya/polaris-colors) as an npm developement package.
-* [Polaris Slideshow](https://github.com/heminsatya/polaris-slideshow) as an npm developement package.
+* [Polaris Colors](https://www.npmjs.com/package/polaris-colors) as an npm developement package.
+* [Polaris Sizing](https://www.npmjs.com/package/polaris-sizing) as an npm developement package.
+* [Polaris Spacing](https://www.npmjs.com/package/polaris-spacing) as an npm developement package.
+* [Polaris Slideshow](https://www.npmjs.com/package/polaris-slideshow) as an npm developement package.
 
 
 ## Download Polaris Layouts
