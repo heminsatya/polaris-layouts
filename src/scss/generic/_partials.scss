@@ -1,0 +1,47 @@
+/**
+* Partials
+**/
+.header .inner, 
+.upper .inner, 
+.nav .inner, 
+.main .inner, 
+.aside .inner, 
+.lower .inner, 
+.footer .inner {
+    padding: 2rem;
+    height: 100%;
+}
+
+.doc {
+    &-light {
+        .partials {
+            background-color: white;
+        }
+
+        .header .inner, 
+        .upper .inner, 
+        .nav .inner, 
+        .main .inner, 
+        .aside .inner, 
+        .lower .inner, 
+        .footer .inner {
+            background-color: color(gray-50);
+        }
+    }
+
+    &-dark {
+        .partials {
+            background-color: color(gray-950);
+        }
+
+        .header .inner, 
+        .upper .inner, 
+        .nav .inner, 
+        .main .inner, 
+        .aside .inner, 
+        .lower .inner, 
+        .footer .inner {
+            background-color: color(gray-900);
+        }
+    }
+}

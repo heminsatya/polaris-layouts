@@ -1,0 +1,20 @@
+/**
+* noscript
+**/
+.noscript {
+    display: block;
+    background-color: color('yellow', 'plugin');
+    color:            color('red-900', 'plugin');
+    border:           2px solid color('red-400', 'plugin');
+
+    & a {
+        text-decoration: underline;
+        color:           color('red-700', 'plugin');
+        font-weight:     bold;
+
+        &:hover {
+            text-decoration: none;
+            color:           color('red-900', 'plugin');
+        }
+    }
+}

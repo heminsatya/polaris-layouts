@@ -1,0 +1,39 @@
+// ------------------------------ //
+//          Dependencies          //
+// ------------------------------ //
+@import "./functions";
+@import "./mixins";
+@import "./variables";
+
+
+/* ------------------------------ */
+/*       Polaris Framework        */
+/* ------------------------------ */
+@import "polaris-core/src/scss/polaris-rtl";
+
+
+/* ------------------------------ */
+/*        Polaris Plugins         */
+/* ------------------------------ */
+@import "polaris-colors/src/scss/main";
+@import "polaris-slideshow/src/scss/main-rtl";
+
+
+/* ------------------------------ */
+/*             Generic            */
+/* ------------------------------ */
+@import "./generic/document";
+@import "./generic/noscript";
+@import "./generic/partials";
+
+
+/* ------------------------------ */
+/*             Partials           */
+/* ------------------------------ */
+@import "./partials/header";
+@import "./partials/upper";
+@import "./partials/nav";
+@import "./partials/main";
+@import "./partials/aside";
+@import "./partials/lower";
+@import "./partials/footer";
