@@ -1,6 +1,6 @@
 {
   "name": "polaris-layouts",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Polaris Layouts. A set of responsive HTML layouts built with Polaris Framework.",
   "author": "Hemin Satya",
   "license": "MIT",
@@ -33,6 +33,8 @@
   "devDependencies": {
     "polaris-core": "^0.9.3",
     "polaris-colors": "^1.3.0",
+    "polaris-sizing": "^1.2.0",
+    "polaris-spacing": "^1.2.0",
     "polaris-slideshow": "^1.2.1",
     "sass": "^1.56.1",
     "typescript": "^4.9.3",
