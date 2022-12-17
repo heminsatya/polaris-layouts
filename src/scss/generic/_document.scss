@@ -2,7 +2,8 @@
 * Document
 **/
 .body {
-    flex: auto;
+    flex:       auto;
+    overflow-x: hidden;
 }
 
 .partials {
