@@ -1,13 +1,13 @@
 /**
 * Document
 **/
-.body {
-    flex:       auto;
-    overflow-x: hidden;
-}
-
 .partials {
     display:        flex;
     flex-direction: column;
     height:         100%;
+    overflow-x:     hidden;
+}
+
+.body {
+    flex: auto;
 }

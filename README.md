@@ -1,4 +1,4 @@
-# Welcome to Polaris Layouts (v1.2.0)
+# Welcome to Polaris Layouts (v1.2.1)
 
 This repository contains a couple of simple responsive HTML layouts for [Polaris Framework](https://github.com/heminsatya/polaris-core), that you can use as blueprints for your templates.
 
@@ -63,6 +63,10 @@ Next step after customization is to rebuild CSS & JS libraries.
 ```
 npm run css
 npm run css-dev
+```
+
+> If you are using RTL languages run:
+```
 npm run css-rtl
 npm run css-rtl-dev
 ```
