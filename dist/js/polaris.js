@@ -20,7 +20,7 @@ return /******/ (() => { // webpackBootstrap
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Alerts": () => (/* binding */ Alerts)
+/* harmony export */   Alerts: () => (/* binding */ Alerts)
 /* harmony export */ });
 /* harmony import */ var _Animations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Animations */ "./node_modules/polaris-core/dist/js/modules/Animations.js");
 /**
@@ -135,7 +135,7 @@ class Alerts extends _Animations__WEBPACK_IMPORTED_MODULE_0__.Animations {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Animations": () => (/* binding */ Animations)
+/* harmony export */   Animations: () => (/* binding */ Animations)
 /* harmony export */ });
 /* harmony import */ var _Helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Helpers */ "./node_modules/polaris-core/dist/js/modules/Helpers.js");
 /**
@@ -435,7 +435,7 @@ class Animations extends _Helpers__WEBPACK_IMPORTED_MODULE_0__.Helpers {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Blueprints": () => (/* binding */ Blueprints)
+/* harmony export */   Blueprints: () => (/* binding */ Blueprints)
 /* harmony export */ });
 /* harmony import */ var _Defaults__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Defaults */ "./node_modules/polaris-core/dist/js/modules/Defaults.js");
 /**
@@ -502,7 +502,7 @@ class Blueprints extends _Defaults__WEBPACK_IMPORTED_MODULE_0__.Defaults {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Config": () => (/* binding */ Config)
+/* harmony export */   Config: () => (/* binding */ Config)
 /* harmony export */ });
 /**
  * @desc Used for the configuration of Polaris JS library
@@ -542,6 +542,10 @@ class Config {
         this.nameHeight = "h"; // Name key for css height classes
         this.nameRadius = "round"; // Name key for border-radius & component roundness
         this.namePosition = "position"; // Name key for position classes
+        this.nameDraggable = "draggable"; // Name key for draggable
+        this.nameDragging = "dragging"; // 2nd name key for draggable-dragging
+        this.nameSwapping = "swapping"; // 2nd name key for draggable-swapping
+        this.nameDragAuto = "auto"; // 2nd name key for draggable__auto
         this.fadeInAnimation = "fadeIn"; // fadeIn animation
         this.fadeOutAnimation = "fadeOut"; // fadeOut animation
         this.hideYAnimation = "hideY"; // hideY animation
@@ -571,7 +575,7 @@ class Config {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Core": () => (/* binding */ Core)
+/* harmony export */   Core: () => (/* binding */ Core)
 /* harmony export */ });
 /* harmony import */ var _Blueprints__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Blueprints */ "./node_modules/polaris-core/dist/js/modules/Blueprints.js");
 /**
@@ -713,6 +717,10 @@ class Core extends _Blueprints__WEBPACK_IMPORTED_MODULE_0__.Blueprints {
          */
         this.menuDefaults();
         /**
+         *  Auto draggable items
+         */
+        this.draggableDefaults();
+        /**
          *  Load Blueprints
          */
         /**
@@ -741,9 +749,9 @@ class Core extends _Blueprints__WEBPACK_IMPORTED_MODULE_0__.Blueprints {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Defaults": () => (/* binding */ Defaults)
+/* harmony export */   Defaults: () => (/* binding */ Defaults)
 /* harmony export */ });
-/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Modal */ "./node_modules/polaris-core/dist/js/modules/Modal.js");
+/* harmony import */ var _Draggable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Draggable */ "./node_modules/polaris-core/dist/js/modules/Draggable.js");
 /**
  * Import the parent Class
  */
@@ -751,7 +759,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * @desc Used for handling components default behaviors
  */
-class Defaults extends _Modal__WEBPACK_IMPORTED_MODULE_0__.Modal {
+class Defaults extends _Draggable__WEBPACK_IMPORTED_MODULE_0__.Draggable {
     /**
      * @desc Constructor method
      */
@@ -1023,8 +1031,155 @@ class Defaults extends _Modal__WEBPACK_IMPORTED_MODULE_0__.Modal {
             });
         }
     }
+    /**
+     * @desc Handles auto draggable items
+     *
+     * @return {void}
+     */
+    draggableDefaults() {
+        if (document.querySelectorAll(`.${this.nameDraggable + this.parSep + this.nameDragAuto}`).length) {
+            document.querySelectorAll(`.${this.nameDraggable + this.parSep + this.nameDragAuto}`).forEach((elem) => {
+                // Set CSS properties and variables
+                this.draggable(elem);
+            });
+        }
+    }
 }
 //# sourceMappingURL=Defaults.js.map
+
+/***/ }),
+
+/***/ "./node_modules/polaris-core/dist/js/modules/Draggable.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/polaris-core/dist/js/modules/Draggable.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Draggable: () => (/* binding */ Draggable)
+/* harmony export */ });
+/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Modal */ "./node_modules/polaris-core/dist/js/modules/Modal.js");
+/**
+ * Import the parent Class
+ */
+
+/**
+ * @desc Used for handling draggable items
+ */
+class Draggable extends _Modal__WEBPACK_IMPORTED_MODULE_0__.Modal {
+    /**
+     * @desc Constructor method
+     */
+    constructor() {
+        // Inherit the parent class
+        super();
+    }
+    /**
+     * @desc Hadnles the dragable items on drag
+     *
+     * @param {HTMLElement} container -- The dragable container
+     *
+     * @return {Promise}
+     */
+    draggable(container) {
+        let selector = null;
+        // Check the container
+        if (this.exist(container)['status']) {
+            if (typeof (container) === "string") {
+                selector = document.querySelector(container);
+            }
+            else if (typeof (container) === "object") {
+                selector = container;
+            }
+        }
+        else {
+            throw this.exist(container)['message'];
+        }
+        // Animation promise
+        const promise = new Promise((resolve, reject) => {
+            const draggables = Array.from(selector.children);
+            // Items
+            let counter = 1;
+            draggables.forEach((draggable) => {
+                // Check the data-order
+                if (!draggable.dataset.order) {
+                    draggable.dataset.order = counter;
+                }
+                // Drag start
+                draggable.ondragstart = (e) => {
+                    if (e.target === draggable) {
+                        draggable.classList.add(this.nameDraggable + this.modSep + this.nameDragging);
+                    }
+                };
+                // Drag enter
+                draggable.ondragenter = (e) => {
+                    if (e.target === draggable) {
+                        const dragging = selector.querySelector(`.${this.nameDraggable + this.modSep + this.nameDragging}`);
+                        if (draggable != dragging && dragging) {
+                            if (dragging.parentNode === draggable.parentNode) {
+                                const draggingOrder = dragging.dataset.order;
+                                const draggableOrder = draggable.dataset.order;
+                                // Swap orders
+                                dragging.dataset.order = draggableOrder;
+                                draggable.dataset.order = draggingOrder;
+                                // Swap items
+                                this.swap(dragging, draggable);
+                                // Swaping
+                                draggable.classList.add(this.nameDraggable + this.modSep + this.nameSwapping);
+                                dragging.classList.add(this.nameDraggable + this.modSep + this.nameSwapping);
+                            }
+                        }
+                    }
+                };
+                // Drag leave
+                draggable.ondragleave = (e) => {
+                    if (e.target === draggable) {
+                        const dragging = selector.querySelector(`.${this.nameDraggable + this.modSep + this.nameDragging}`);
+                        if (draggable != dragging && dragging) {
+                            if (dragging.parentNode === draggable.parentNode) {
+                                // Swaping
+                                draggable.classList.remove(this.nameDraggable + this.modSep + this.nameSwapping);
+                                dragging.classList.remove(this.nameDraggable + this.modSep + this.nameSwapping);
+                            }
+                        }
+                    }
+                };
+                // Drag over
+                draggable.ondragover = (e) => {
+                    const dragging = selector.querySelector(`.${this.nameDraggable + this.modSep + this.nameDragging}`);
+                    if (dragging) {
+                        if (dragging.parentNode === draggable.parentNode) {
+                            e.preventDefault();
+                        }
+                    }
+                };
+                // Drag end
+                draggable.ondragend = (e) => {
+                    if (e.target === draggable) {
+                        // Swaping
+                        const swaping = selector.querySelector(`.${this.nameDraggable + this.modSep + this.nameSwapping}`);
+                        if (swaping)
+                            swaping.classList.remove(this.nameDraggable + this.modSep + this.nameSwapping);
+                        const dragging = selector.querySelector(`.${this.nameDraggable + this.modSep + this.nameDragging}`);
+                        if (dragging)
+                            dragging.classList.remove(this.nameDraggable + this.modSep + this.nameSwapping);
+                        draggable.classList.remove(this.nameDraggable + this.modSep + this.nameDragging);
+                    }
+                    // Promise on resolve
+                    resolve('Dragabble ended!');
+                    // Promise on reject
+                    reject('Dragabble crashed!');
+                };
+                // Increase counter
+                counter++;
+            });
+        });
+        // Return the promise
+        return promise;
+    }
+}
+//# sourceMappingURL=Draggable.js.map
 
 /***/ }),
 
@@ -1036,7 +1191,7 @@ class Defaults extends _Modal__WEBPACK_IMPORTED_MODULE_0__.Modal {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Helpers": () => (/* binding */ Helpers)
+/* harmony export */   Helpers: () => (/* binding */ Helpers)
 /* harmony export */ });
 /* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Config */ "./node_modules/polaris-core/dist/js/modules/Config.js");
 /**
@@ -1758,6 +1913,46 @@ class Helpers extends _Config__WEBPACK_IMPORTED_MODULE_0__.Config {
             return elem.exitFullscreen() || elem.webkitExitFullscreen() || elem.mozCancelFullScreen() || elem.msExitFullscreen();
         }
     }
+    /**
+     * @desc Calls a function on class change for an elemnent
+     *
+     * @param {any}      elem -- The element to listen
+     * @param {Function} fn   -- The callback function
+     *
+     * @var {object} listener -- The event listener
+     *
+     * @return {void}
+     */
+    onClassChange(elem, fn) {
+        const listener = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    fn(mutation.target);
+                }
+            });
+        });
+        listener.observe(elem, { attributes: true });
+        return listener.disconnect;
+    }
+    /**
+     * @desc For swaping two nodes from the same flow
+     *
+     * @param {HTMLElement} nodeA -- The first node
+     * @param {HTMLElement} nodeB -- The second node
+     *
+     * @var {HTMLElement} siblingA -- The sibling of first node
+     *
+     * @return {void}
+     */
+    swap(nodeA, nodeB) {
+        // Find the next sibling of nodeA
+        const siblingA = (nodeA.nextSibling === nodeB) ? nodeA : nodeA.nextSibling;
+        // Move nodeA before the nodeB
+        nodeB.parentNode.insertBefore(nodeA, nodeB);
+        // Move nodeB before the next sibling of nodeA
+        nodeA.parentNode.insertBefore(nodeB, siblingA);
+    }
+    ;
 }
 //# sourceMappingURL=Helpers.js.map
 
@@ -1771,7 +1966,7 @@ class Helpers extends _Config__WEBPACK_IMPORTED_MODULE_0__.Config {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Modal": () => (/* binding */ Modal)
+/* harmony export */   Modal: () => (/* binding */ Modal)
 /* harmony export */ });
 /* harmony import */ var _Alerts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Alerts */ "./node_modules/polaris-core/dist/js/modules/Alerts.js");
 /**
@@ -1954,7 +2149,7 @@ class Modal extends _Alerts__WEBPACK_IMPORTED_MODULE_0__.Alerts {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Slideshow": () => (/* binding */ Slideshow)
+/* harmony export */   Slideshow: () => (/* binding */ Slideshow)
 /* harmony export */ });
 /* harmony import */ var polaris_core_dist_js_modules_Animations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polaris-core/dist/js/modules/Animations */ "./node_modules/polaris-core/dist/js/modules/Animations.js");
 
@@ -2027,52 +2222,54 @@ class Slideshow extends polaris_core_dist_js_modules_Animations__WEBPACK_IMPORTE
         this.hasDots = false;
         this.width = 0;
         this.height = 0;
-        this.slideshowColor = 'auto';
-        this.mediaFilter = null;
+        this.slideshowSkin = 'auto';
+        this.mediaFilter = false;
         this.mediaControls = true;
         this.mediaAutoplay = false;
+        this.syncRatio = 0.5;
         // Slideshow options
         this.options = {
             "mediaShrink": this.mediaShrink,
-            'isAutoplay': this.isAutoplay,
-            'hoverPause': this.hoverPause,
-            'timeout': this.timeout,
-            'hasProgress': this.hasProgress,
-            'hasCounter': this.hasCounter,
-            'hasControls': this.hasControls,
-            'hasDots': this.hasDots,
-            'round': false,
-            'width': null,
-            'height': null,
-            'color': this.slideshowColor,
-            'mediaControls': this.mediaControls,
-            'mediaAutoplay': this.mediaAutoplay,
-            'mediaFilter': this.mediaFilter,
-            'phoneHeight': null,
-            'tabletHeight': null,
-            'desktopHeight': null,
-            'mediaEnter': null,
-            'mediaExit': null,
-            'mediaEnterPrev': null,
-            'mediaExitPrev': null,
-            'mediaEnterNext': null,
-            'mediaExitNext': null,
-            'overlayEnter': null,
-            'overlayExit': null,
-            'overlayEnterPrev': null,
-            'overlayExitPrev': null,
-            'overlayEnterNext': null,
-            'overlayExitNext': null,
-            'captionEnter': null,
-            'captionExit': null,
-            'captionEnterPrev': null,
-            'captionExitPrev': null,
-            'captionEnterNext': null,
-            'captionExitNext': null,
-            'counterPosition': null,
-            'dotsPosition': null,
-            'captionsPosition': null,
-            'overlaysPosition': null,
+            "isAutoplay": this.isAutoplay,
+            "hoverPause": this.hoverPause,
+            "timeout": this.timeout,
+            "hasProgress": this.hasProgress,
+            "hasCounter": this.hasCounter,
+            "hasControls": this.hasControls,
+            "hasDots": this.hasDots,
+            "round": false,
+            "width": null,
+            "height": null,
+            "skin": this.slideshowSkin,
+            "mediaControls": this.mediaControls,
+            "mediaAutoplay": this.mediaAutoplay,
+            "syncRatio": this.syncRatio,
+            "mediaFilter": this.mediaFilter,
+            "phoneHeight": null,
+            "tabletHeight": null,
+            "desktopHeight": null,
+            "mediaEnter": null,
+            "mediaExit": null,
+            "mediaEnterPrev": null,
+            "mediaExitPrev": null,
+            "mediaEnterNext": null,
+            "mediaExitNext": null,
+            "overlayEnter": null,
+            "overlayExit": null,
+            "overlayEnterPrev": null,
+            "overlayExitPrev": null,
+            "overlayEnterNext": null,
+            "overlayExitNext": null,
+            "captionEnter": null,
+            "captionExit": null,
+            "captionEnterPrev": null,
+            "captionExitPrev": null,
+            "captionEnterNext": null,
+            "captionExitNext": null,
+            "counterPosition": null,
+            "dotsPosition": null,
+            "captionsPosition": null,
+            "overlaysPosition": null,
         };
         // Valid slideshow selector
         if (this.exist(slideshow)['status']) {
@@ -2117,10 +2314,23 @@ class Slideshow extends polaris_core_dist_js_modules_Animations__WEBPACK_IMPORTE
                 this.options['mediaControls'] = this.mediaControls;
             if (!('mediaAutoplay' in this.options))
                 this.options['mediaAutoplay'] = this.mediaAutoplay;
-            if (!('color' in this.options))
-                this.options['color'] = this.slideshowColor;
+            if (!('syncRatio' in this.options))
+                this.options['syncRatio'] = this.syncRatio;
+            if (!('skin' in this.options))
+                this.options['skin'] = this.slideshowSkin;
             if (!('mediaFilter' in this.options))
                 this.options['mediaFilter'] = this.mediaFilter;
+            // Final check filter
+            if (this.options['mediaFilter']) {
+                this.options['skin'] = this.nameLight;
+            }
+            // Refine ratio
+            if (this.options['syncRatio'] < 0) {
+                this.options['syncRatio'] = 0;
+            }
+            else if (this.options['syncRatio'] > 1) {
+                this.options['syncRatio'] = 1;
+            }
             // Start the slideshow
             this.start();
         }
@@ -2386,6 +2596,7 @@ class Slideshow extends polaris_core_dist_js_modules_Animations__WEBPACK_IMPORTE
      * @return {void|boolean}
      */
     setOptions() {
+        var _a;
         /**
          *  Single & Multiple slide
          */
@@ -2402,16 +2613,19 @@ class Slideshow extends polaris_core_dist_js_modules_Animations__WEBPACK_IMPORTE
                     this.append("div", this.slideshow, "", [this.nameSlideshow + this.chiSep + this.nameSlideshowCounter]);
                 }
             }
+            // Create controls
+            if (!this.slideshow.querySelector(`.${this.nameSlideshow + this.chiSep + this.nameSlideshowPrev}`)) {
+                const controlsContent = '&#10094;';
+                this.append("div", this.slideshow, controlsContent, [this.nameSlideshow + this.chiSep + this.nameSlideshowPrev]);
+            }
+            if (!this.slideshow.querySelector(`.${this.nameSlideshow + this.chiSep + this.nameSlideshowNext}`)) {
+                const controlsContent = '&#10095;';
+                this.append("div", this.slideshow, controlsContent, [this.nameSlideshow + this.chiSep + this.nameSlideshowNext]);
+            }
             // Check controls
-            if (this.options['hasControls']) {
-                if (!this.slideshow.querySelector(`.${this.nameSlideshow + this.chiSep + this.nameSlideshowPrev}`)) {
-                    const controlsContent = '&#10094;';
-                    this.append("div", this.slideshow, controlsContent, [this.nameSlideshow + this.chiSep + this.nameSlideshowPrev]);
-                }
-                if (!this.slideshow.querySelector(`.${this.nameSlideshow + this.chiSep + this.nameSlideshowNext}`)) {
-                    const controlsContent = '&#10095;';
-                    this.append("div", this.slideshow, controlsContent, [this.nameSlideshow + this.chiSep + this.nameSlideshowNext]);
-                }
+            if (!this.options['hasControls']) {
+                this.slideshowPrev.style.display = 'none';
+                this.slideshowNext.style.display = 'none';
             }
             // Check dots
             if (this.options['hasDots']) {
@@ -2500,23 +2714,42 @@ class Slideshow extends polaris_core_dist_js_modules_Animations__WEBPACK_IMPORTE
             }
         }, 10);
         /**
-         *  Set slideshow color
+         *  Set slideshow skin
          */
-        if (this.options['color'] && this.options['color'] != 'auto') {
-            this.addClass(this.slideshow, this.nameSlideshow + this.modSep + this.options['color']);
+        // Reverse colors
+        if (this.options['skin'] == 'reverse') {
+            // Check document color
+            if ((_a = document.querySelector('body')) === null || _a === void 0 ? void 0 : _a.classList.contains(`${this.nameDoc + this.modSep + this.nameLight}`)) {
+                this.addClass(this.slideshow, this.nameSlideshow + this.modSep + this.nameDark);
+            }
+            else {
+                this.addClass(this.slideshow, this.nameSlideshow + this.modSep + this.nameLight);
+            }
+            // On class change
+            this.onClassChange(document.querySelector('body'), (node) => {
+                // Check document color
+                if (node.classList.contains(`${this.nameDoc + this.modSep + this.nameLight}`)) {
+                    this.removeClass(this.slideshow, this.nameSlideshow + this.modSep + this.nameLight);
+                    this.addClass(this.slideshow, this.nameSlideshow + this.modSep + this.nameDark);
+                }
+                else {
+                    this.removeClass(this.slideshow, this.nameSlideshow + this.modSep + this.nameDark);
+                    this.addClass(this.slideshow, this.nameSlideshow + this.modSep + this.nameLight);
+                }
+            });
+        }
+        // Normal colors
+        else if (this.options['skin'] != 'auto') {
+            this.addClass(this.slideshow, this.nameSlideshow + this.modSep + this.options['skin']);
         }
         /**
          *  Set slideshow filter
          */
         if (this.options['mediaFilter']) {
-            let filterCls;
-            // Produce the filter class list
-            if (this.options['mediaFilter'] == 'auto')
-                filterCls = [this.nameSlideshow + this.chiSep + this.nameSlideshowFilter];
-            else
-                filterCls = [this.nameSlideshow + this.chiSep + this.nameSlideshowFilter, this.nameSlideshow + this.chiSep + this.nameSlideshowFilter + this.modSep + this.options['mediaFilter']];
+            // Produce the filter class
+            const filterCls = this.nameSlideshow + this.chiSep + this.nameSlideshowFilter;
             // Append the filter
-            this.append('div', this.slideshow, '', filterCls);
+            this.append('div', this.slideshow, '', [filterCls]);
         }
         /**
          *  Set slideshow roundness
@@ -2887,26 +3120,25 @@ class Slideshow extends polaris_core_dist_js_modules_Animations__WEBPACK_IMPORTE
     setSlide(index, mode = null) {
         // Check sliding
         if (!this.sliding) {
-            // Reset the timer
-            this.remainingTime = 0;
             // Clear the timer interval
             if (this.timerInterval)
                 clearInterval(this.timerInterval);
-            // Reset the progress
-            if (this.options['hasProgress'])
-                this.slideshowProgress.style.width = '0%';
-            // Start sliding
-            this.sliding = true;
             // Stop the slide interval
             if (this.slideInterval)
                 clearInterval(this.slideInterval);
-            // Rest the progressbar
+            // Reset the progressbar
             if (this.options['hasProgress'])
                 this.slideshowProgress.style.width = '0%';
+            // Reset the timer
+            this.remainingTime = 0;
+            // Start sliding
+            this.sliding = true;
             // Default vaiables
             let slide, media, overlays, captions;
             let mediaAnimation, overlayAnimation, captionAnimation;
             let slideMode;
+            let ratio;
+            let itemTimout;
             // Set mode
             if (mode)
                 slideMode = mode;
@@ -2932,6 +3164,50 @@ class Slideshow extends polaris_core_dist_js_modules_Animations__WEBPACK_IMPORTE
                 if (this.activeDot) {
                     // Remove active class
                     this.removeClass(this.activeDot, this.nameActive);
+                }
+                // Hide captions
+                if (captions.length) {
+                    captions.forEach((caption) => {
+                        // Find animation
+                        if (caption.dataset.exit)
+                            captionAnimation = caption.dataset.exit;
+                        else if (caption.dataset.exitPrev && slideMode == 'previous')
+                            captionAnimation = caption.dataset.exitPrev;
+                        else if (caption.dataset.exitNext && slideMode == 'next')
+                            captionAnimation = caption.dataset.exitNext;
+                        else if (this.options['captionExit'])
+                            captionAnimation = this.options['captionExit'];
+                        else if (this.options['captionExitPrev'] && slideMode == 'previous')
+                            captionAnimation = this.options['captionExitPrev'];
+                        else if (this.options['captionExitNext'] && slideMode == 'next')
+                            captionAnimation = this.options['captionExitNext'];
+                        else
+                            captionAnimation = this.animationExit;
+                        // Set animation
+                        this.animation(caption, captionAnimation);
+                    });
+                }
+                // Hide overlays
+                if (overlays.length) {
+                    overlays.forEach((overlay) => {
+                        // Find animation
+                        if (overlay.dataset.exit)
+                            overlayAnimation = overlay.dataset.exit;
+                        else if (overlay.dataset.exitPrev && slideMode == 'previous')
+                            overlayAnimation = overlay.dataset.exitPrev;
+                        else if (overlay.dataset.exitNext && slideMode == 'next')
+                            overlayAnimation = overlay.dataset.exitNext;
+                        else if (this.options['overlayExit'])
+                            overlayAnimation = this.options['overlayExit'];
+                        else if (this.options['overlayExitPrev'] && slideMode == 'previous')
+                            overlayAnimation = this.options['overlayExitPrev'];
+                        else if (this.options['overlayExitNext'] && slideMode == 'next')
+                            overlayAnimation = this.options['overlayExitNext'];
+                        else
+                            overlayAnimation = this.animationExit;
+                        // Set animation
+                        this.animation(overlay, overlayAnimation);
+                    });
                 }
                 // Hide media
                 if (media) {
@@ -2959,50 +3235,6 @@ class Slideshow extends polaris_core_dist_js_modules_Animations__WEBPACK_IMPORTE
                         mediaAnimation = this.animationExit;
                     // Set animation
                     this.animation(media, mediaAnimation);
-                }
-                // Hide overlays
-                if (overlays.length) {
-                    overlays.forEach((overlay) => {
-                        // Find animation
-                        if (overlay.dataset.exit)
-                            overlayAnimation = overlay.dataset.exit;
-                        else if (overlay.dataset.exitPrev && slideMode == 'previous')
-                            overlayAnimation = overlay.dataset.exitPrev;
-                        else if (overlay.dataset.exitNext && slideMode == 'next')
-                            overlayAnimation = overlay.dataset.exitNext;
-                        else if (this.options['overlayExit'])
-                            overlayAnimation = this.options['overlayExit'];
-                        else if (this.options['overlayExitPrev'] && slideMode == 'previous')
-                            overlayAnimation = this.options['overlayExitPrev'];
-                        else if (this.options['overlayExitNext'] && slideMode == 'next')
-                            overlayAnimation = this.options['overlayExitNext'];
-                        else
-                            overlayAnimation = this.animationExit;
-                        // Set animation
-                        this.animation(overlay, overlayAnimation);
-                    });
-                }
-                // Hide captions
-                if (captions.length) {
-                    captions.forEach((caption) => {
-                        // Find animation
-                        if (caption.dataset.exit)
-                            captionAnimation = caption.dataset.exit;
-                        else if (caption.dataset.exitPrev && slideMode == 'previous')
-                            captionAnimation = caption.dataset.exitPrev;
-                        else if (caption.dataset.exitNext && slideMode == 'next')
-                            captionAnimation = caption.dataset.exitNext;
-                        else if (this.options['captionExit'])
-                            captionAnimation = this.options['captionExit'];
-                        else if (this.options['captionExitPrev'] && slideMode == 'previous')
-                            captionAnimation = this.options['captionExitPrev'];
-                        else if (this.options['captionExitNext'] && slideMode == 'next')
-                            captionAnimation = this.options['captionExitNext'];
-                        else
-                            captionAnimation = this.animationExit;
-                        // Set animation
-                        this.animation(caption, captionAnimation);
-                    });
                 }
             }
             /**
@@ -3074,50 +3306,70 @@ class Slideshow extends polaris_core_dist_js_modules_Animations__WEBPACK_IMPORTE
                     this.sliding = false;
                 });
             }
-            // Show overlays
-            if (overlays.length) {
-                overlays.forEach((overlay) => {
-                    // Find animation
-                    if (overlay.dataset.enter)
-                        overlayAnimation = overlay.dataset.enter;
-                    else if (overlay.dataset.enterPrev && slideMode == 'previous')
-                        overlayAnimation = overlay.dataset.enterPrev;
-                    else if (overlay.dataset.enterNext && slideMode == 'next')
-                        overlayAnimation = overlay.dataset.enterNext;
-                    else if (this.options['overlayEnter'])
-                        overlayAnimation = this.options['overlayEnter'];
-                    else if (this.options['overlayEnterPrev'] && slideMode == 'previous')
-                        overlayAnimation = this.options['overlayEnterPrev'];
-                    else if (this.options['overlayEnterNext'] && slideMode == 'next')
-                        overlayAnimation = this.options['overlayEnterNext'];
-                    else
-                        overlayAnimation = this.animationEnter;
-                    // Set animation
-                    this.animation(overlay, overlayAnimation);
-                });
+            // Synchronicity ratio
+            if (media.dataset.duration) {
+                // Miliseconds
+                if (media.dataset.duration.search("ms")) {
+                    ratio = parseInt(media.dataset.duration);
+                }
+                // Seconds
+                else {
+                    ratio = parseInt(media.dataset.duration) * 1000;
+                }
             }
-            // Show captions
-            if (captions.length) {
-                captions.forEach((caption) => {
-                    // Find animation
-                    if (caption.dataset.enter)
-                        captionAnimation = caption.dataset.enter;
-                    else if (caption.dataset.enterPrev && slideMode == 'previous')
-                        captionAnimation = caption.dataset.enterPrev;
-                    else if (caption.dataset.enterNext && slideMode == 'next')
-                        captionAnimation = caption.dataset.enterNext;
-                    else if (this.options['captionEnter'])
-                        captionAnimation = this.options['captionEnter'];
-                    else if (this.options['captionEnterPrev'] && slideMode == 'previous')
-                        captionAnimation = this.options['captionEnterPrev'];
-                    else if (this.options['captionEnterNext'] && slideMode == 'next')
-                        captionAnimation = this.options['captionEnterNext'];
-                    else
-                        captionAnimation = this.animationEnter;
-                    // Set animation
-                    this.animation(caption, captionAnimation);
-                });
+            else {
+                ratio = 1000;
             }
+            // Refine ratio
+            ratio *= this.options['syncRatio'];
+            // Show slide items
+            clearTimeout(itemTimout);
+            itemTimout = setTimeout(() => {
+                // Show overlays
+                if (overlays.length) {
+                    overlays.forEach((overlay) => {
+                        // Find animation
+                        if (overlay.dataset.enter)
+                            overlayAnimation = overlay.dataset.enter;
+                        else if (overlay.dataset.enterPrev && slideMode == 'previous')
+                            overlayAnimation = overlay.dataset.enterPrev;
+                        else if (overlay.dataset.enterNext && slideMode == 'next')
+                            overlayAnimation = overlay.dataset.enterNext;
+                        else if (this.options['overlayEnter'])
+                            overlayAnimation = this.options['overlayEnter'];
+                        else if (this.options['overlayEnterPrev'] && slideMode == 'previous')
+                            overlayAnimation = this.options['overlayEnterPrev'];
+                        else if (this.options['overlayEnterNext'] && slideMode == 'next')
+                            overlayAnimation = this.options['overlayEnterNext'];
+                        else
+                            overlayAnimation = this.animationEnter;
+                        // Set animation
+                        this.animation(overlay, overlayAnimation);
+                    });
+                }
+                // Show captions
+                if (captions.length) {
+                    captions.forEach((caption) => {
+                        // Find animation
+                        if (caption.dataset.enter)
+                            captionAnimation = caption.dataset.enter;
+                        else if (caption.dataset.enterPrev && slideMode == 'previous')
+                            captionAnimation = caption.dataset.enterPrev;
+                        else if (caption.dataset.enterNext && slideMode == 'next')
+                            captionAnimation = caption.dataset.enterNext;
+                        else if (this.options['captionEnter'])
+                            captionAnimation = this.options['captionEnter'];
+                        else if (this.options['captionEnterPrev'] && slideMode == 'previous')
+                            captionAnimation = this.options['captionEnterPrev'];
+                        else if (this.options['captionEnterNext'] && slideMode == 'next')
+                            captionAnimation = this.options['captionEnterNext'];
+                        else
+                            captionAnimation = this.animationEnter;
+                        // Set animation
+                        this.animation(caption, captionAnimation);
+                    });
+                }
+            }, ratio);
             // Set counter
             if (this.options['hasCounter'])
                 this.slideshowCounter.innerHTML = `${Number(slide.dataset.index) + 1}/${this.itemsCount}`;

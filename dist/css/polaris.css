@@ -3,7 +3,7 @@
 /*       Polaris Framework        */
 /* ------------------------------ */
 /**
- * Polaris Framework v0.9.8 Beta
+ * Polaris Framework v0.9.13 Beta
  * MIT License github.com/heminsatya/polaris-core | © 2022 polarisui.com
 **/
 /* -------------------------------------------------- */
@@ -12,9 +12,9 @@
 /* ---------- Root ---------- */
 :root {
   --light: #F1F4F6;
-  --gray: var(--gray, #848E96);
+  --gray: #848E96;
   --dark: #202428;
-  --app: var(--app, #4283F2);
+  --app: #4283F2;
   --notice: #31AAF6;
   --warning: #FFC002;
   --danger: #F23838;
@@ -7320,6 +7320,180 @@ a.disabled {
   font-weight: 900 !important;
 }
 
+@media (min-width: 0) {
+  .s-font-100 {
+    font-weight: 100 !important;
+  }
+  .s-font-200 {
+    font-weight: 200 !important;
+  }
+  .s-font-300 {
+    font-weight: 300 !important;
+  }
+  .s-font-400 {
+    font-weight: 400 !important;
+  }
+  .s-font-500 {
+    font-weight: 500 !important;
+  }
+  .s-font-600 {
+    font-weight: 600 !important;
+  }
+  .s-font-700 {
+    font-weight: 700 !important;
+  }
+  .s-font-800 {
+    font-weight: 800 !important;
+  }
+  .s-font-900 {
+    font-weight: 900 !important;
+  }
+}
+@media (min-width: 480px) {
+  .ls-font-100 {
+    font-weight: 100 !important;
+  }
+  .ls-font-200 {
+    font-weight: 200 !important;
+  }
+  .ls-font-300 {
+    font-weight: 300 !important;
+  }
+  .ls-font-400 {
+    font-weight: 400 !important;
+  }
+  .ls-font-500 {
+    font-weight: 500 !important;
+  }
+  .ls-font-600 {
+    font-weight: 600 !important;
+  }
+  .ls-font-700 {
+    font-weight: 700 !important;
+  }
+  .ls-font-800 {
+    font-weight: 800 !important;
+  }
+  .ls-font-900 {
+    font-weight: 900 !important;
+  }
+}
+@media (min-width: 768px) {
+  .t-font-100 {
+    font-weight: 100 !important;
+  }
+  .t-font-200 {
+    font-weight: 200 !important;
+  }
+  .t-font-300 {
+    font-weight: 300 !important;
+  }
+  .t-font-400 {
+    font-weight: 400 !important;
+  }
+  .t-font-500 {
+    font-weight: 500 !important;
+  }
+  .t-font-600 {
+    font-weight: 600 !important;
+  }
+  .t-font-700 {
+    font-weight: 700 !important;
+  }
+  .t-font-800 {
+    font-weight: 800 !important;
+  }
+  .t-font-900 {
+    font-weight: 900 !important;
+  }
+}
+@media (min-width: 1024px) {
+  .lt-font-100 {
+    font-weight: 100 !important;
+  }
+  .lt-font-200 {
+    font-weight: 200 !important;
+  }
+  .lt-font-300 {
+    font-weight: 300 !important;
+  }
+  .lt-font-400 {
+    font-weight: 400 !important;
+  }
+  .lt-font-500 {
+    font-weight: 500 !important;
+  }
+  .lt-font-600 {
+    font-weight: 600 !important;
+  }
+  .lt-font-700 {
+    font-weight: 700 !important;
+  }
+  .lt-font-800 {
+    font-weight: 800 !important;
+  }
+  .lt-font-900 {
+    font-weight: 900 !important;
+  }
+}
+@media (min-width: 1280px) {
+  .d-font-100 {
+    font-weight: 100 !important;
+  }
+  .d-font-200 {
+    font-weight: 200 !important;
+  }
+  .d-font-300 {
+    font-weight: 300 !important;
+  }
+  .d-font-400 {
+    font-weight: 400 !important;
+  }
+  .d-font-500 {
+    font-weight: 500 !important;
+  }
+  .d-font-600 {
+    font-weight: 600 !important;
+  }
+  .d-font-700 {
+    font-weight: 700 !important;
+  }
+  .d-font-800 {
+    font-weight: 800 !important;
+  }
+  .d-font-900 {
+    font-weight: 900 !important;
+  }
+}
+@media (min-width: 1440px) {
+  .ld-font-100 {
+    font-weight: 100 !important;
+  }
+  .ld-font-200 {
+    font-weight: 200 !important;
+  }
+  .ld-font-300 {
+    font-weight: 300 !important;
+  }
+  .ld-font-400 {
+    font-weight: 400 !important;
+  }
+  .ld-font-500 {
+    font-weight: 500 !important;
+  }
+  .ld-font-600 {
+    font-weight: 600 !important;
+  }
+  .ld-font-700 {
+    font-weight: 700 !important;
+  }
+  .ld-font-800 {
+    font-weight: 800 !important;
+  }
+  .ld-font-900 {
+    font-weight: 900 !important;
+  }
+}
 /*
 * font-style
 */
@@ -13269,22 +13443,22 @@ hr,
   filter: blur(0) !important;
 }
 .blur-xs, .blur-xs-hover:hover {
-  filter: blur(2px) !important;
+  filter: blur(1px) !important;
 }
 .blur-sm, .blur-sm-hover:hover {
-  filter: blur(4px) !important;
+  filter: blur(2px) !important;
 }
 .blur-md, .blur-md-hover:hover {
-  filter: blur(8px) !important;
+  filter: blur(3px) !important;
 }
 .blur-lg, .blur-lg-hover:hover {
-  filter: blur(16px) !important;
+  filter: blur(4px) !important;
 }
 .blur-xl, .blur-xl-hover:hover {
-  filter: blur(24px) !important;
+  filter: blur(5px) !important;
 }
 .blur-max, .blur-max-hover:hover {
-  filter: blur(32px) !important;
+  filter: blur(6px) !important;
 }
 
 /*
@@ -16896,13 +17070,9 @@ input:checked[type=radio].field:focus {
 }
 
 /* ---------- Messages ---------- */
-.msg__container {
-  position: relative;
-  z-index: 10;
-}
-
 .msg__control {
   position: relative;
+  z-index: 10;
 }
 
 .msg {
@@ -18251,12 +18421,63 @@ ul.menu--open {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
+/* ---------- Draggable  ---------- */
+.draggable__container {
+  position: relative;
+  max-width: 100%;
+}
+
+.draggable {
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 1rem 1.5rem;
+  margin: 0.25rem;
+  border-radius: 0.25rem;
+  cursor: move;
+  transition: transform 0.25s ease;
+}
+
+.doc-dark .draggable,
+.draggable.draggable-dark {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #F1F4F6;
+}
+
+.draggable,
+.draggable.draggable-light {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #202428;
+}
+
+.draggable-dragging {
+  background: rgba(66, 131, 242, 0.25) !important;
+}
+
+.draggable__x .draggable-swapping:not(.draggable-dragging) {
+  transform: translateX(0.75rem);
+}
+
+.draggable__x .draggable-swapping.draggable-dragging {
+  transform: translateX(-0.75rem);
+}
+
+.draggable__y .draggable-swapping:not(.draggable-dragging) {
+  transform: translateY(0.5rem);
+}
+
+.draggable__y .draggable-swapping.draggable-dragging {
+  transform: translateY(-0.5rem);
+}
+
 /* ------------------------------ */
 /*        Polaris Plugins         */
 /* ------------------------------ */
 /**
- * Polaris Colors Plugin v1.3.2
  * MIT License github.com/heminsatya/polaris-plugins | © 2022 polarisui.com
+**/
+/**
+ * Polaris Colors Plugin v1.4.2
+ * MIT License github.com/heminsatya/polaris-colors | © 2022 polarisui.com
 **/
 /* -------------------------------------------------- */
 /*                   Color Palettes                   */
@@ -24263,7 +24484,7 @@ ul.menu--open {
 }
 
 /**
- * Polaris Sizing Plugin v1.2.1
+ * Polaris Sizing Plugin v1.2.2
  * MIT License github.com/heminsatya/polaris-plugins | © 2022 polarisui.com
 **/
 /* -------------------------------------------------- */
@@ -26889,7 +27110,7 @@ ul.menu--open {
   }
 }
 /**
- * Polaris Spacing Plugin v1.2.1
+ * Polaris Spacing Plugin v1.2.2
  * MIT License github.com/heminsatya/polaris-plugins | © 2022 polarisui.com
 **/
 /* -------------------------------------------------- */
@@ -36920,7 +37141,7 @@ ul.menu--open {
   }
 }
 /**
- * Polaris Slideshow Plugin v1.2.3
+ * Polaris Slideshow Plugin v1.5.0
  * MIT License github.com/heminsatya/polaris-plugins | © 2022 polarisui.com
 **/
 /* -------------------------------------------------- */
@@ -36994,18 +37215,13 @@ ul.menu--open {
 .slideshow-dark .slideshow--caption,
 .doc-dark .slideshow--caption {
   color: var(--gray-100, #F1F4F6);
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .slideshow--caption,
 .slideshow-light .slideshow--caption {
   color: var(--gray-900, #202428);
   background-color: rgba(255, 255, 255, 0.9);
-}
-
-.slideshow-app .slideshow--caption {
-  color: white;
-  background-color: var(--app-a900, rgba(66, 131, 242, 0.9));
 }
 
 .slideshow--overlays {
@@ -37057,18 +37273,13 @@ ul.menu--open {
 .slideshow-dark .slideshow--counter,
 .doc-dark .slideshow--counter {
   color: var(--gray-200, #D6DBDE);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.45);
 }
 
 .slideshow--counter,
 .slideshow-light .slideshow--counter {
   color: var(--gray-800, #393F44);
   background-color: rgba(255, 255, 255, 0.6);
-}
-
-.slideshow-app .slideshow--counter {
-  color: rgba(255, 255, 255, 0.9);
-  background-color: var(--app-a600, rgba(66, 131, 242, 0.6));
 }
 
 .slideshow--prev, .slideshow--next {
@@ -37105,7 +37316,7 @@ ul.menu--open {
 .slideshow-dark .slideshow--prev,
 .doc-dark .slideshow--prev {
   color: var(--gray-200, #D6DBDE);
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.55);
 }
 
 .slideshow--prev,
@@ -37114,15 +37325,10 @@ ul.menu--open {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-.slideshow-app .slideshow--prev {
-  color: rgba(255, 255, 255, 0.9);
-  background-color: var(--app-a700, rgba(66, 131, 242, 0.7));
-}
-
 .slideshow-dark .slideshow--prev:hover,
 .doc-dark .slideshow--prev:hover {
   color: var(--gray-100, #F1F4F6);
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .slideshow--prev:hover,
@@ -37131,15 +37337,10 @@ ul.menu--open {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-.slideshow-app .slideshow--prev:hover {
-  color: white;
-  background-color: var(--app-a900, rgba(66, 131, 242, 0.9));
-}
-
 .slideshow-dark .slideshow--next,
 .doc-dark .slideshow--next {
   color: var(--gray-200, #D6DBDE);
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.55);
 }
 
 .slideshow--next,
@@ -37148,26 +37349,16 @@ ul.menu--open {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-.slideshow-app .slideshow--next {
-  color: rgba(255, 255, 255, 0.9);
-  background-color: var(--app-a700, rgba(66, 131, 242, 0.7));
-}
-
 .slideshow-dark .slideshow--next:hover,
 .doc-dark .slideshow--next:hover {
   color: var(--gray-100, #F1F4F6);
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .slideshow--next:hover,
 .slideshow-light .slideshow--next:hover {
   color: var(--gray-900, #202428);
   background-color: rgba(255, 255, 255, 0.9);
-}
-
-.slideshow-app .slideshow--next:hover {
-  color: white;
-  background-color: var(--app-a900, rgba(66, 131, 242, 0.9));
 }
 
 .slideshow--dots {
@@ -37200,16 +37391,12 @@ ul.menu--open {
 
 .slideshow-dark .slideshow--dots > li,
 .doc-dark .slideshow--dots > li {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .slideshow--dots > li,
 .slideshow-light .slideshow--dots > li {
   background-color: rgba(255, 255, 255, 0.9);
-}
-
-.slideshow-app .slideshow--dots > li {
-  background-color: var(--app-a900, rgba(66, 131, 242, 0.9));
 }
 
 .slideshow--filter {
@@ -37219,16 +37406,7 @@ ul.menu--open {
   width: 100%;
   height: 100%;
   z-index: 2;
-}
-
-.doc-dark .slideshow--filter,
-.slideshow--filter.slideshow--filter-light {
-  background-color: rgba(255, 255, 255, 0.25);
-}
-
-.slideshow--filter,
-.slideshow--filter.slideshow--filter-dark {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.45);
 }
 
 .slideshow--caption:empty,

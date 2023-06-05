@@ -1,5 +1,5 @@
 const msg = `
-    Polaris Layouts v.1.2.1
+    Polaris Layouts v1.4.0
 `
 
 module.exports = msg
