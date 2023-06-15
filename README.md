@@ -1,4 +1,4 @@
-# Polaris Layouts (v1.4.0)
+# Polaris Layouts (v1.4.1)
 
 This repository contains a couple of simple responsive HTML layouts for [Polaris Framework](https://github.com/heminsatya/polaris), that you can use as blueprints for your templates.
 
