@@ -3,7 +3,7 @@
 /*       Polaris Framework        */
 /* ------------------------------ */
 /**
- * Polaris Framework v0.9.13 Beta
+ * Polaris Framework v0.9.15 Beta
  * MIT License github.com/heminsatya/polaris-core | © 2022 polarisui.com
 **/
 /* -------------------------------------------------- */
@@ -19,7 +19,7 @@
   --warning: #FFC002;
   --danger: #F23838;
   --success: #39B663;
-  --main-font-family: system-ui, -apple-system, "Segoe UI", "Open Sans", "Helvetica Neue", Roboto, Arial, sans-serif;
+  --main-font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
   --main-font-size: 1rem;
   --main-font-weight: 400;
   --main-line-height: 1.5;
@@ -51,7 +51,7 @@ body {
 }
 
 body {
-  font-family: system-ui, -apple-system, "Segoe UI", "Open Sans", "Helvetica Neue", Roboto, Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -278,7 +278,7 @@ code,
 kbd,
 samp,
 var {
-  font-family: Consolas, "Lucida Console", "Courier New", Monaco, monospace;
+  font-family: ui-monospace, "SF Mono", "DejaVu Sans Mono", "Ubuntu Mono", "Roboto Mono", Consolas, monospace;
   font-weight: 400;
   line-height: 1;
 }
@@ -286,7 +286,7 @@ var {
 kbd {
   display: inline-block;
   padding: 0.25rem 0.5rem;
-  font-family: Consolas, "Lucida Console", "Courier New", Monaco, monospace;
+  font-family: ui-monospace, "SF Mono", "DejaVu Sans Mono", "Ubuntu Mono", "Roboto Mono", Consolas, monospace;
   font-size: 1em;
   font-weight: 400;
   line-height: 1;
@@ -2367,36 +2367,43 @@ button::-moz-focus-inner,
 */
 .w-rest {
   flex: 1 0 !important;
+  width: 1% !important;
 }
 
 @media (min-width: 0) {
   .s-w-rest {
     flex: 1 0 !important;
+    width: 1% !important;
   }
 }
 @media (min-width: 480px) {
   .ls-w-rest {
     flex: 1 0 !important;
+    width: 1% !important;
   }
 }
 @media (min-width: 768px) {
   .t-w-rest {
     flex: 1 0 !important;
+    width: 1% !important;
   }
 }
 @media (min-width: 1024px) {
   .lt-w-rest {
     flex: 1 0 !important;
+    width: 1% !important;
   }
 }
 @media (min-width: 1280px) {
   .d-w-rest {
     flex: 1 0 !important;
+    width: 1% !important;
   }
 }
 @media (min-width: 1440px) {
   .ld-w-rest {
     flex: 1 0 !important;
+    width: 1% !important;
   }
 }
 /*
@@ -6904,13 +6911,13 @@ a.disabled {
 * font-family
 */
 .font-serif {
-  font-family: Georgia, "Times New Roman", Times, serif !important;
+  font-family: "Times New Roman", Times, serif !important;
 }
 .font-sans {
-  font-family: system-ui, -apple-system, "Segoe UI", "Open Sans", "Helvetica Neue", Roboto, Arial, sans-serif !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif !important;
 }
 .font-mono {
-  font-family: Consolas, "Lucida Console", "Courier New", Monaco, monospace !important;
+  font-family: ui-monospace, "SF Mono", "DejaVu Sans Mono", "Ubuntu Mono", "Roboto Mono", Consolas, monospace !important;
 }
 .font-inherit {
   font-family: inherit !important;
@@ -7804,7 +7811,7 @@ a.disabled {
 .kbd {
   display: inline-block;
   padding: 0.25rem 0.5rem;
-  font-family: Consolas, "Lucida Console", "Courier New", Monaco, monospace;
+  font-family: ui-monospace, "SF Mono", "DejaVu Sans Mono", "Ubuntu Mono", "Roboto Mono", Consolas, monospace;
   font-size: 1em;
   font-weight: 400;
   line-height: 1;
@@ -7888,7 +7895,7 @@ a.disabled {
 .code {
   display: inline-block;
   padding: 0.125rem 0.25rem;
-  font-family: Consolas, "Lucida Console", "Courier New", Monaco, monospace;
+  font-family: ui-monospace, "SF Mono", "DejaVu Sans Mono", "Ubuntu Mono", "Roboto Mono", Consolas, monospace;
   font-size: 1em;
   font-weight: 400;
   line-height: 1.25;
@@ -7915,7 +7922,7 @@ a.disabled {
 .ide {
   display: block;
   padding: 1rem 1.5rem;
-  font-family: Consolas, "Lucida Console", "Courier New", Monaco, monospace;
+  font-family: ui-monospace, "SF Mono", "DejaVu Sans Mono", "Ubuntu Mono", "Roboto Mono", Consolas, monospace;
   font-size: 1em;
   font-weight: 400;
   line-height: 1.5;
@@ -8270,7 +8277,7 @@ a.disabled {
 /* -------------------------------------------------- */
 /* ---------- Document ---------- */
 .doc {
-  font-family: system-ui, -apple-system, "Segoe UI", "Open Sans", "Helvetica Neue", Roboto, Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -18476,7 +18483,7 @@ ul.menu--open {
  * MIT License github.com/heminsatya/polaris-plugins | © 2022 polarisui.com
 **/
 /**
- * Polaris Colors Plugin v1.4.2
+ * Polaris Colors Plugin v1.4.3
  * MIT License github.com/heminsatya/polaris-colors | © 2022 polarisui.com
 **/
 /* -------------------------------------------------- */
@@ -24484,7 +24491,7 @@ ul.menu--open {
 }
 
 /**
- * Polaris Sizing Plugin v1.2.2
+ * Polaris Sizing Plugin v1.2.3
  * MIT License github.com/heminsatya/polaris-plugins | © 2022 polarisui.com
 **/
 /* -------------------------------------------------- */
@@ -27110,7 +27117,7 @@ ul.menu--open {
   }
 }
 /**
- * Polaris Spacing Plugin v1.2.2
+ * Polaris Spacing Plugin v1.2.3
  * MIT License github.com/heminsatya/polaris-plugins | © 2022 polarisui.com
 **/
 /* -------------------------------------------------- */
@@ -37141,7 +37148,7 @@ ul.menu--open {
   }
 }
 /**
- * Polaris Slideshow Plugin v1.5.0
+ * Polaris Slideshow Plugin v1.5.1
  * MIT License github.com/heminsatya/polaris-plugins | © 2022 polarisui.com
 **/
 /* -------------------------------------------------- */
