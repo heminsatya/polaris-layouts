@@ -1,6 +1,6 @@
 {
   "name": "polaris-layouts",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "description": "Polaris Layouts. A set of responsive HTML layouts built with Polaris Framework.",
   "author": "Hemin Satya",
   "license": "MIT",
@@ -31,24 +31,24 @@
     "url": "https://github.com/heminsatya/polaris-layouts/issues"
   },
   "devDependencies": {
-    "polaris-core": "^0.9.15",
-    "polaris-colors": "^1.4.3",
-    "polaris-sizing": "^1.2.3",
-    "polaris-spacing": "^1.2.3",
-    "polaris-slideshow": "^1.5.1",
+    "inspectpack": "^4.7.1",
+    "polaris-core": "^1.0.0",
+    "polaris-colors": "^1.5.1",
+    "polaris-sizing": "^1.3.0",
+    "polaris-spacing": "^1.3.0",
+    "polaris-slideshow": "^1.7.0",
     "sass": "^1.56.1",
-    "typescript": "^4.9.3",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.0",
     "sass-loader": "^13.2.0",
     "ts-loader": "^9.4.1",
-    "inspectpack": "^4.7.1"
+    "typescript": "^4.9.3",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "css": "sass src/scss/polaris.scss dist/css/polaris.min.css --style compressed --load-path=node_modules",
+    "css": "sass src/scss/polaris.scss dist/css/polaris.min.css --style compressed --load-path=node_modules --no-source-map",
     "css-dev": "sass src/scss/polaris.scss dist/css/polaris.css --watch --load-path=node_modules",
-    "css-rtl": "sass src/scss/polaris-rtl.scss dist/css/polaris-rtl.min.css --style compressed --load-path=node_modules",
+    "css-rtl": "sass src/scss/polaris-rtl.scss dist/css/polaris-rtl.min.css --style compressed --load-path=node_modules --no-source-map",
     "css-rtl-dev": "sass src/scss/polaris-rtl.scss dist/css/polaris-rtl.css --watch --load-path=node_modules",
     "js": "webpack",
     "js-dev": "webpack --config webpack.config.dev.js"
